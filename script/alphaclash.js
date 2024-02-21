@@ -25,6 +25,24 @@ function handleKeyboardButtonPress(event){
 
     if(playerPressed === expectedAlphabet){
         console.log('you got point');
+
+        // update score
+        // 1. get the current score
+        
+        const currentScoreElement = document.getElementById('current-score')
+        const currentScoreText = currentScoreElement.innerText
+        const currentScore = parseInt(currentScoreText)
+        // console.log(currentScoreText)
+        // 2. increase the score by 1
+        const newScore = currentScore+1
+        // console.log(newScore)
+
+        // 3. show the updated score
+        currentScoreElement.innerText = newScore
+        
+         
+
+        // start a new round 
         removeBackgroundColorById(expectedAlphabet)
         continueGame();
 
@@ -32,6 +50,14 @@ function handleKeyboardButtonPress(event){
 
     else{
         console.log('you lose')
+        const currentLifeElement = document.getElementById('current-life')
+       
+        const currentLifeScore = currentLifeElement.innerText
+
+        const newLife = currentLifeScore-1
+
+        currentLifeElement.innerText= newLife;
+        console.log(newLife)
     }
 
 
